@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import uz.gita.examm.R
 import uz.gita.examm.data.room.entities.NoteEntity
+import uz.gita.examm.utils.NoteDiffUtil
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.VH>() {
     private val oldList: ArrayList<NoteEntity> = ArrayList()
@@ -18,10 +20,11 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.VH>() {
     }
 
     fun submitList(newList: List<NoteEntity>) {
-
+        val callBack = NoteDiffUtil(oldList, ArrayList(newList))
+        val calculateDiff = DiffUtil.calculateDiff(callBack)
         oldList.clear()
         oldList.addAll(newList)
-        notifyDataSetChanged()
+        calculateDiff.dispatchUpdatesTo(this)
     }
 
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {

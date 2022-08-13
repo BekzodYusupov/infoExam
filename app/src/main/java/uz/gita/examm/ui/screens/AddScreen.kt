@@ -82,6 +82,17 @@ class AddScreen : Fragment(R.layout.screen_add) {
         imageList.add(R.drawable.intro2)
         imageList.add(R.drawable.intro3)
         imageList.add(R.drawable.intro4)
+        imageList.add(R.drawable.img)
+        imageList.add(R.drawable.img1)
+        imageList.add(R.drawable.im2)
+        imageList.add(R.drawable.img3)
+        imageList.add(R.drawable.img4)
+        imageList.add(R.drawable.img5)
+        imageList.add(R.drawable.img6)
+        imageList.add(R.drawable.img7)
+        imageList.add(R.drawable.img8)
+        imageList.add(R.drawable.img9)
+        imageList.add(R.drawable.img10)
     }
 
 
