@@ -42,7 +42,11 @@
         tools:layout="@layout/screen_user"
         android:id="@+id/userScreen"
         android:name="uz.gita.examm.ui.screens.UserScreen"
-        android:label="UserScreen" />
+        android:label="UserScreen" >
+        <action
+            android:id="@+id/action_userScreen_to_contentScreen"
+            app:destination="@id/contentScreen" />
+    </fragment>
     <fragment
         android:id="@+id/adminScreen"
         tools:layout="@layout/screen_admin"
@@ -65,4 +69,9 @@
         tools:layout="@layout/screen_edit"
         android:name="uz.gita.examm.ui.screens.EditScreen"
         android:label="EditScreen" />
+    <fragment
+        tools:layout="@layout/screen_content"
+        android:id="@+id/contentScreen"
+        android:name="uz.gita.examm.ui.screens.ContentScreen"
+        android:label="ContentScreen" />
 </navigation>

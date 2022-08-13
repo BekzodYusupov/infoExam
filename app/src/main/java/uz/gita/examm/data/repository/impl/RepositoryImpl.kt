@@ -24,5 +24,9 @@ class RepositoryImpl : Repository {
         noteDao.update(noteEntity)
     }
 
+    override fun getItemLive(id: Int): LiveData<NoteEntity> = noteDao.getItemLive(id)
+
     override fun getItem(id: Int): NoteEntity = noteDao.getItem(id)
+    override fun search(search: String?): LiveData<List<NoteEntity>> = noteDao.search(search)
+    override fun getAllowedUserNotes(): LiveData<List<NoteEntity>> = noteDao.getAllowedUserNotes()
 }

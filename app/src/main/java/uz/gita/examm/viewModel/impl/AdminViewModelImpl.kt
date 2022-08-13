@@ -37,14 +37,6 @@ class AdminViewModelImpl : AdminViewModel,ViewModel() {
         openAddScreen.value = Unit
     }
 
-    override fun setPlaceHolder(): Boolean {
-        val size = repo.getNotes().value?.size
-        if (size!=null) {
-            return size==0
-        }
-        return false
-    }
-
     override fun triggerItemClick(id: Int) {
         itemLivedata.value = id
     }

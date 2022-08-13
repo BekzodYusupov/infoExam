@@ -9,6 +9,8 @@ interface Repository {
     fun insert(noteEntity: NoteEntity)
     fun delete(noteEntity: NoteEntity)
     fun update(noteEntity: NoteEntity)
+    fun getItemLive(id: Int): LiveData<NoteEntity>
     fun getItem(id: Int): NoteEntity
-    fun search(search:String):LiveData<List<>>
+    fun search(search:String?):LiveData<List<NoteEntity>>
+    fun getAllowedUserNotes():LiveData<List<NoteEntity>>
 }

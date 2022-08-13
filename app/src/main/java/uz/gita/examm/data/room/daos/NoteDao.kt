@@ -21,6 +21,12 @@ interface NoteDao {
     @Query("SELECT * FROM note WHERE id = :id")
     fun getItem(id: Int): NoteEntity
 
-    @Query("SELECT * FROM note WHERE title LIKE  '%'|| :search || '%'")
-    fun search(search:String):LiveData<List<NoteEntity>>
+    @Query("SELECT * FROM note WHERE id = :id")
+    fun getItemLive(id: Int): LiveData<NoteEntity>
+
+    @Query("SELECT * FROM note WHERE title LIKE  '%'|| :search || '%' AND state=1")
+    fun search(search: String?): LiveData<List<NoteEntity>>
+
+    @Query("SELECT * FROM note WHERE state=1")
+    fun getAllowedUserNotes():LiveData<List<NoteEntity>>
 }

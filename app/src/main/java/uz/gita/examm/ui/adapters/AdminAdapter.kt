@@ -15,6 +15,8 @@ class AdminAdapter : RecyclerView.Adapter<AdminAdapter.VH>() {
     private val oldList: ArrayList<NoteEntity> = ArrayList()
 
     private var itemClickListener: ((Int) -> Unit)? = null
+    private var itemLongClickListener: ((NoteEntity) -> Unit)? = null
+    private var checkClickLisstener:((NoteEntity,Boolean)->Unit)? = null
 
     fun submitList(newItems: List<NoteEntity>) {
         val callBack = NoteDiffUtil(oldList, ArrayList(newItems))
@@ -40,6 +42,14 @@ class AdminAdapter : RecyclerView.Adapter<AdminAdapter.VH>() {
             view.setOnClickListener {
                 itemClickListener?.invoke(oldList[adapterPosition].id)
             }
+            view.setOnLongClickListener {
+                itemLongClickListener?.invoke(oldList[adapterPosition])
+                true
+            }
+
+            state.setOnClickListener {
+                checkClickLisstener?.invoke(oldList[adapterPosition],state.isChecked)
+            }
         }
 
 
@@ -54,5 +64,12 @@ class AdminAdapter : RecyclerView.Adapter<AdminAdapter.VH>() {
 
     fun triggerItemClickListener(block: (Int) -> Unit) {
         itemClickListener = block
+    }
+    fun triggerItemLongClickListener(block: (NoteEntity) -> Unit) {
+        itemLongClickListener = block
+    }
+
+    fun triggerCheckClickListener(block: (NoteEntity,Boolean) -> Unit) {
+        checkClickLisstener = block
     }
 }

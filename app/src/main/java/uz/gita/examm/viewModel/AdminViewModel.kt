@@ -13,6 +13,5 @@ interface AdminViewModel {
     fun insert(noteEntity: NoteEntity)
     fun update(noteEntity: NoteEntity)
     fun trigger()
-    fun setPlaceHolder():Boolean
     fun triggerItemClick(id:Int)
 }
