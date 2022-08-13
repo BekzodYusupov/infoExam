@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pagerAdd"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        android:elevation="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dots_indicatorAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="16dp"
+        app:dotsColor="#FFFFFF"
+        app:dotsCornerRadius="6dp"
+        app:dotsSize="16dp"
+        app:dotsSpacing="3dp"
+        app:dotsWidthFactor="2.5"
+        app:layout_constraintBottom_toBottomOf="@id/pagerAdd"
+        android:elevation="16dp"
+        app:layout_constraintEnd_toEndOf="@id/pagerAdd"
+        app:layout_constraintStart_toStartOf="@id/pagerAdd"
+        app:progressMode="true"
+        app:selectedDotColor="#FF0000" />
+
+    <EditText
+        android:id="@+id/etAddTitle"
+        android:layout_width="0dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="80dp"
+        android:hint="Title..."
+        android:textSize="20sp"
+        android:maxEms="20"
+        android:maxLines="1"
+        android:elevation="1dp"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/pagerAdd"
+        app:layout_constraintStart_toStartOf="@+id/pagerAdd"
+        app:layout_constraintTop_toBottomOf="@id/pagerAdd" />
+
+    <EditText
+        android:id="@+id/etAddContent"
+        android:hint="Content..."
+        android:gravity="top"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:padding="24dp"
+        android:elevation="1dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelNote"
+        app:layout_constraintEnd_toEndOf="@id/etAddTitle"
+        app:layout_constraintStart_toStartOf="@id/etAddTitle"
+        app:layout_constraintTop_toBottomOf="@id/etAddTitle" />
+
+    <Button
+        android:id="@+id/btnCancelNote"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#FF0000"
+        android:layout_marginBottom="16dp"
+        android:text="Cancel"
+        android:paddingVertical="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddNote"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddNote"
+        android:layout_width="160dp"
+        android:paddingVertical="8dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btnCancelNote"
+        android:text="Add"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#67BF00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

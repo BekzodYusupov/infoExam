@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen2">
+    <fragment
+        android:id="@+id/splashScreen2"
+        tools:layout="@layout/splash_screen"
+        android:name="uz.gita.examm.ui.screens.SplashScreen"
+        android:label="SplashScreen" >
+        <action
+            android:id="@+id/action_splashScreen2_to_introScreen"
+            app:destination="@id/introScreen"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/introScreen"
+        tools:layout="@layout/screen_intro"
+        android:name="uz.gita.examm.ui.screens.IntroScreen"
+        android:label="IntroScreen" >
+        <action
+            android:id="@+id/action_introScreen_to_loginScreen"
+            app:destination="@id/loginScreen"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginScreen"
+        tools:layout="@layout/screen_login"
+        android:name="uz.gita.examm.ui.screens.LoginScreen"
+        android:label="LoginScreen" >
+        <action
+            android:id="@+id/action_loginScreen_to_userScreen"
+            app:destination="@id/userScreen" />
+        <action
+            android:id="@+id/action_loginScreen_to_adminScreen"
+            app:destination="@id/adminScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_user"
+        android:id="@+id/userScreen"
+        android:name="uz.gita.examm.ui.screens.UserScreen"
+        android:label="UserScreen" />
+    <fragment
+        android:id="@+id/adminScreen"
+        tools:layout="@layout/screen_admin"
+        android:name="uz.gita.examm.ui.screens.AdminScreen"
+        android:label="AdminScreen" >
+        <action
+            android:id="@+id/action_adminScreen_to_addScreen"
+            app:destination="@id/addScreen" />
+        <action
+            android:id="@+id/action_adminScreen_to_editScreen"
+            app:destination="@id/editScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_add"
+        android:id="@+id/addScreen"
+        android:name="uz.gita.examm.ui.screens.AddScreen"
+        android:label="AddScreen" />
+    <fragment
+        android:id="@+id/editScreen"
+        tools:layout="@layout/screen_edit"
+        android:name="uz.gita.examm.ui.screens.EditScreen"
+        android:label="EditScreen" />
+</navigation>
