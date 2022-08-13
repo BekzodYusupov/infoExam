@@ -1,5 +1,6 @@
 package uz.gita.examm.ui.screens
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -66,7 +67,17 @@ class AdminScreen : Fragment(R.layout.screen_admin) {
         }
 
         adapter.triggerItemLongClickListener {
-            viewModel.delete(it)
+            val dialog = AlertDialog.Builder(requireContext())
+            dialog.setTitle("Delete?")
+            dialog.setPositiveButton("Yes"){d,i->
+                viewModel.delete(it)
+                d.dismiss()
+            }
+            dialog.setNegativeButton("No"){d,i->
+                d.dismiss()
+            }
+            dialog.show()
+
         }
     }
 
